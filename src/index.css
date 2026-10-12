@@ -34,7 +34,9 @@
 
 @theme {
   /* Fonts */
-  --font-sans: 'Inter', 'Roboto', system-ui, sans-serif;
+  /* Pretendard (src/main.tsx에서 dynamic subset CSS를 불러온다) */
+  --font-sans: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* Animations */
@@ -139,7 +141,7 @@
   }
 
   body {
-    font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+    font-family: var(--font-sans);
     background-color: var(--hud-bg-primary);
     color: var(--hud-text-primary);
     min-height: 100vh;
