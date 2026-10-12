@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react'
 import HudCard from '../../components/common/HudCard'
 
 const ChartJs = () => {
@@ -128,7 +129,7 @@ const ChartJs = () => {
                                     )
                                     acc.angle = endAngle
                                     return acc
-                                }, { paths: [] as JSX.Element[], angle: 0 }).paths}
+                                }, { paths: [] as ReactElement[], angle: 0 }).paths}
                             </svg>
                         </div>
                         <div className="space-y-3">
@@ -177,7 +178,7 @@ const ChartJs = () => {
                                     )
                                     acc.angle = endAngle
                                     return acc
-                                }, { paths: [] as JSX.Element[], angle: 0 }).paths}
+                                }, { paths: [] as ReactElement[], angle: 0 }).paths}
                             </svg>
                             <div className="absolute inset-0 flex flex-col items-center justify-center">
                                 <span className="text-2xl font-bold text-hud-text-primary">12.4K</span>

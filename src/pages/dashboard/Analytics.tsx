@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react'
 import {
     TrendingUp,
     TrendingDown,
@@ -175,7 +176,7 @@ const Analytics = () => {
                                     )
                                     acc.total += item.percentage
                                     return acc
-                                }, { elements: [] as JSX.Element[], total: 0 }).elements}
+                                }, { elements: [] as ReactElement[], total: 0 }).elements}
                             </svg>
                             <div className="absolute inset-0 flex flex-col items-center justify-center">
                                 <span className="text-2xl font-bold text-hud-text-primary">15.2K</span>
