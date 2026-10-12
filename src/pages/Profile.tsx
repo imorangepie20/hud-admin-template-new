@@ -8,10 +8,8 @@ import {
     Link as LinkIcon,
     Edit,
     Camera,
-    Github,
-    Twitter,
-    Linkedin,
 } from 'lucide-react'
+import { Github, Twitter, Linkedin } from '../components/common/BrandIcons'
 import HudCard from '../components/common/HudCard'
 import Button from '../components/common/Button'
 import { Link } from 'react-router-dom'
