@@ -12,9 +12,13 @@ import {
     Moon,
     Sun,
     Save,
+    Check,
+    RotateCcw,
 } from 'lucide-react'
 import HudCard from '../components/common/HudCard'
 import Button from '../components/common/Button'
+import { useTheme } from '../context/useTheme'
+import { ACCENT_PRESETS, FONT_SIZES } from '../context/theme'
 
 const settingsSections = [
     { id: 'profile', label: 'Profile', icon: <User size={18} /> },
@@ -28,7 +32,7 @@ const settingsSections = [
 
 const Settings = () => {
     const [activeSection, setActiveSection] = useState('profile')
-    const [darkMode, setDarkMode] = useState(true)
+    const { isDark, setDark, accent, setAccent, fontSize, setFontSize, resetAppearance } = useTheme()
 
     return (
         <div className="space-y-6 animate-fade-in">
@@ -143,60 +147,87 @@ const Settings = () => {
                     )}
 
                     {activeSection === 'appearance' && (
-                        <HudCard title="Appearance" subtitle="Customize the look and feel">
+                        <HudCard title="Appearance" subtitle="Customize the look and feel. Changes apply instantly and are saved on this device.">
                             <div className="space-y-6">
                                 {/* Theme Toggle */}
-                                <div className="flex items-center justify-between p-4 bg-hud-bg-primary rounded-lg">
+                                <div className="flex items-center justify-between gap-4 p-4 bg-hud-bg-primary rounded-lg">
                                     <div className="flex items-center gap-4">
                                         <div className="p-2 bg-hud-accent-primary/10 rounded-lg text-hud-accent-primary">
-                                            {darkMode ? <Moon size={18} /> : <Sun size={18} />}
+                                            {isDark ? <Moon size={18} /> : <Sun size={18} />}
                                         </div>
                                         <div>
-                                            <p className="text-sm text-hud-text-primary">Dark Mode</p>
+                                            <p id="dark-mode-label" className="text-sm text-hud-text-primary">Dark Mode</p>
                                             <p className="text-xs text-hud-text-muted">Toggle dark/light theme</p>
                                         </div>
                                     </div>
-                                    <label className="relative inline-flex items-center cursor-pointer">
+                                    <label className="relative inline-flex items-center cursor-pointer shrink-0">
                                         <input
                                             type="checkbox"
-                                            checked={darkMode}
-                                            onChange={() => setDarkMode(!darkMode)}
+                                            role="switch"
+                                            aria-labelledby="dark-mode-label"
+                                            checked={isDark}
+                                            onChange={(e) => setDark(e.target.checked)}
                                             className="sr-only peer"
                                         />
-                                        <div className="w-11 h-6 bg-hud-bg-hover peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-hud-accent-primary"></div>
+                                        <div className="w-11 h-6 bg-hud-bg-hover rounded-full peer peer-focus-visible:ring-2 peer-focus-visible:ring-hud-accent-primary peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-hud-accent-primary"></div>
                                     </label>
                                 </div>
 
                                 {/* Accent Color */}
                                 <div>
-                                    <label className="block text-sm text-hud-text-secondary mb-3">Accent Color</label>
-                                    <div className="flex gap-3">
-                                        {['#00FFCC', '#6366F1', '#FF1493', '#FFA500', '#10B981', '#EF4444'].map((color) => (
-                                            <button
-                                                key={color}
-                                                className={`w-10 h-10 rounded-lg transition-transform hover:scale-110 ${color === '#00FFCC' ? 'ring-2 ring-offset-2 ring-offset-hud-bg-secondary ring-white' : ''}`}
-                                                style={{ backgroundColor: color }}
-                                            />
-                                        ))}
+                                    <p id="accent-label" className="block text-sm text-hud-text-secondary mb-3">Accent Color</p>
+                                    <div role="radiogroup" aria-labelledby="accent-label" className="flex flex-wrap gap-3">
+                                        {ACCENT_PRESETS.map((preset) => {
+                                            const selected = accent === preset.id
+                                            return (
+                                                <button
+                                                    key={preset.id}
+                                                    type="button"
+                                                    role="radio"
+                                                    aria-checked={selected}
+                                                    aria-label={preset.label}
+                                                    title={preset.label}
+                                                    onClick={() => setAccent(preset.id)}
+                                                    className={`w-10 h-10 rounded-lg flex items-center justify-center transition-transform hover:scale-110 ${selected ? 'ring-2 ring-offset-2 ring-offset-hud-bg-secondary ring-hud-text-primary' : ''}`}
+                                                    style={{ backgroundColor: `rgb(${isDark ? preset.dark : preset.light})` }}
+                                                >
+                                                    {selected && <Check size={18} className="text-white drop-shadow" />}
+                                                </button>
+                                            )
+                                        })}
                                     </div>
                                 </div>
 
                                 {/* Font Size */}
                                 <div>
-                                    <label className="block text-sm text-hud-text-secondary mb-3">Font Size</label>
-                                    <div className="flex gap-2">
-                                        {['Small', 'Medium', 'Large'].map((size) => (
-                                            <button
-                                                key={size}
-                                                className={`px-4 py-2 rounded-lg text-sm transition-hud ${size === 'Medium'
-                                                        ? 'bg-hud-accent-primary text-hud-bg-primary'
-                                                        : 'bg-hud-bg-primary text-hud-text-secondary hover:text-hud-text-primary'
-                                                    }`}
-                                            >
-                                                {size}
-                                            </button>
-                                        ))}
+                                    <p id="font-size-label" className="block text-sm text-hud-text-secondary mb-3">Font Size</p>
+                                    <div role="radiogroup" aria-labelledby="font-size-label" className="flex flex-wrap gap-2">
+                                        {FONT_SIZES.map((size) => {
+                                            const selected = fontSize === size.id
+                                            return (
+                                                <button
+                                                    key={size.id}
+                                                    type="button"
+                                                    role="radio"
+                                                    aria-checked={selected}
+                                                    onClick={() => setFontSize(size.id)}
+                                                    className={`px-4 py-2 rounded-lg text-sm transition-hud ${selected
+                                                            ? 'bg-hud-accent-primary text-hud-bg-primary'
+                                                            : 'bg-hud-bg-primary text-hud-text-secondary hover:text-hud-text-primary'
+                                                        }`}
+                                                >
+                                                    {size.label}
+                                                </button>
+                                            )
+                                        })}
                                     </div>
+                                </div>
+
+                                {/* Reset */}
+                                <div className="pt-4 border-t border-hud-border-secondary">
+                                    <Button variant="outline" size="sm" leftIcon={<RotateCcw size={16} />} onClick={resetAppearance}>
+                                        Reset to defaults
+                                    </Button>
                                 </div>
                             </div>
                         </HudCard>

@@ -61,14 +61,18 @@
 }
 
 /* ===== Theme CSS Variables ===== */
+/* 강조색 계열 변수는 모두 --hud-accent-rgb 하나에서 파생된다 (Settings > Appearance에서 변경) */
+
 /* Light Mode (default) */
 :root {
+  --hud-accent-rgb: 8, 145, 178;
+
   --hud-bg-primary: #f0f2f5;
   --hud-bg-secondary: #ffffff;
   --hud-bg-card: rgba(255, 255, 255, 0.85);
   --hud-bg-hover: rgba(0, 0, 0, 0.04);
 
-  --hud-accent-primary: #0891b2;
+  --hud-accent-primary: rgb(var(--hud-accent-rgb));
   --hud-accent-secondary: #db2777;
   --hud-accent-warning: #d97706;
   --hud-accent-info: #6366F1;
@@ -79,31 +83,33 @@
   --hud-text-secondary: #4b5563;
   --hud-text-muted: #9ca3af;
 
-  --hud-border-primary: rgba(8, 145, 178, 0.3);
+  --hud-border-primary: rgba(var(--hud-accent-rgb), 0.3);
   --hud-border-secondary: rgba(0, 0, 0, 0.08);
 
   --hud-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --hud-shadow-glow: 0 4px 14px rgba(8, 145, 178, 0.15);
+  --hud-shadow-glow: 0 4px 14px rgba(var(--hud-accent-rgb), 0.15);
 
   --hud-grid-color: rgba(0, 0, 0, 0.03);
-  --hud-card-bracket-color: rgba(8, 145, 178, 0.4);
+  --hud-card-bracket-color: rgba(var(--hud-accent-rgb), 0.4);
   --hud-scrollbar-track: rgba(0, 0, 0, 0.05);
-  --hud-scrollbar-thumb: rgba(8, 145, 178, 0.3);
-  --hud-scrollbar-thumb-hover: rgba(8, 145, 178, 0.5);
-  --hud-glow-primary-rgb: 8, 145, 178;
+  --hud-scrollbar-thumb: rgba(var(--hud-accent-rgb), 0.3);
+  --hud-scrollbar-thumb-hover: rgba(var(--hud-accent-rgb), 0.5);
+  --hud-glow-primary-rgb: var(--hud-accent-rgb);
   --hud-glow-pink-rgb: 219, 39, 119;
-  --hud-menu-active-bg: linear-gradient(90deg, rgba(8, 145, 178, 0.08) 0%, transparent 100%);
-  --hud-menu-active-border: #0891b2;
+  --hud-menu-active-bg: linear-gradient(90deg, rgba(var(--hud-accent-rgb), 0.08) 0%, transparent 100%);
+  --hud-menu-active-border: rgb(var(--hud-accent-rgb));
 }
 
 /* Dark Mode */
 .dark {
+  --hud-accent-rgb: 0, 255, 204;
+
   --hud-bg-primary: #0E1726;
   --hud-bg-secondary: #141B2D;
   --hud-bg-card: rgba(20, 27, 45, 0.8);
   --hud-bg-hover: rgba(30, 40, 60, 0.9);
 
-  --hud-accent-primary: #00FFCC;
+  --hud-accent-primary: rgb(var(--hud-accent-rgb));
   --hud-accent-secondary: #FF1493;
   --hud-accent-warning: #FFA500;
   --hud-accent-info: #6366F1;
@@ -114,22 +120,41 @@
   --hud-text-secondary: #A0AEC0;
   --hud-text-muted: #64748B;
 
-  --hud-border-primary: rgba(0, 255, 204, 0.3);
+  --hud-border-primary: rgba(var(--hud-accent-rgb), 0.3);
   --hud-border-secondary: rgba(255, 255, 255, 0.1);
 
-  --hud-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
-  --hud-shadow-glow: 0 0 30px rgba(0, 255, 204, 0.3);
+  --hud-shadow: 0 0 20px rgba(var(--hud-accent-rgb), 0.1);
+  --hud-shadow-glow: 0 0 30px rgba(var(--hud-accent-rgb), 0.3);
 
-  --hud-grid-color: rgba(0, 255, 204, 0.03);
-  --hud-card-bracket-color: rgba(0, 255, 204, 0.5);
+  --hud-grid-color: rgba(var(--hud-accent-rgb), 0.03);
+  --hud-card-bracket-color: rgba(var(--hud-accent-rgb), 0.5);
   --hud-scrollbar-track: rgba(20, 27, 45, 0.5);
-  --hud-scrollbar-thumb: rgba(0, 255, 204, 0.3);
-  --hud-scrollbar-thumb-hover: rgba(0, 255, 204, 0.5);
-  --hud-glow-primary-rgb: 0, 255, 204;
+  --hud-scrollbar-thumb: rgba(var(--hud-accent-rgb), 0.3);
+  --hud-scrollbar-thumb-hover: rgba(var(--hud-accent-rgb), 0.5);
+  --hud-glow-primary-rgb: var(--hud-accent-rgb);
   --hud-glow-pink-rgb: 255, 20, 147;
-  --hud-menu-active-bg: linear-gradient(90deg, rgba(0, 255, 204, 0.1) 0%, transparent 100%);
-  --hud-menu-active-border: #00FFCC;
+  --hud-menu-active-bg: linear-gradient(90deg, rgba(var(--hud-accent-rgb), 0.1) 0%, transparent 100%);
+  --hud-menu-active-border: rgb(var(--hud-accent-rgb));
 }
+
+/* ===== Accent Presets (html[data-accent]) ===== */
+/* 기본(cyan)은 위 :root / .dark 값. 라이트 모드는 흰 배경 대비를 위해 더 진한 색을 쓴다 */
+:root[data-accent="indigo"] { --hud-accent-rgb: 79, 70, 229; }
+:root[data-accent="pink"] { --hud-accent-rgb: 219, 39, 119; }
+:root[data-accent="orange"] { --hud-accent-rgb: 217, 119, 6; }
+:root[data-accent="emerald"] { --hud-accent-rgb: 5, 150, 105; }
+:root[data-accent="red"] { --hud-accent-rgb: 220, 38, 38; }
+
+:root.dark[data-accent="indigo"] { --hud-accent-rgb: 99, 102, 241; }
+:root.dark[data-accent="pink"] { --hud-accent-rgb: 255, 20, 147; }
+:root.dark[data-accent="orange"] { --hud-accent-rgb: 255, 165, 0; }
+:root.dark[data-accent="emerald"] { --hud-accent-rgb: 16, 185, 129; }
+:root.dark[data-accent="red"] { --hud-accent-rgb: 239, 68, 68; }
+
+/* ===== Font Size (html[data-font-size]) ===== */
+/* rem 기준 크기를 바꿔 전체 UI를 비례 조정한다. 브라우저 기본 글자 크기 설정을 존중하도록 % 사용 */
+:root[data-font-size="small"] { font-size: 87.5%; }
+:root[data-font-size="large"] { font-size: 112.5%; }
 
 /* ===== Global Styles ===== */
 /* v4: 레이어 밖 CSS는 유틸리티보다 우선하므로 리셋은 base 레이어에 둔다 */

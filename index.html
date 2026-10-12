@@ -6,11 +6,17 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ALPHA TEAM Template</title>
-  <!-- 첫 페인트 전에 저장된 테마를 적용해 깜빡임 방지 (ThemeContext와 같은 키/기본값 사용) -->
+  <!-- 첫 페인트 전에 저장된 외관 설정을 적용해 깜빡임 방지 (ThemeContext와 같은 키/기본값 사용) -->
   <script>
     try {
-      if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
-    } catch (e) { /* 저장소 접근 불가 시 기본(dark) 유지 */ }
+      var root = document.documentElement;
+      if (localStorage.getItem('theme') === 'light') root.classList.remove('dark');
+      // 알 수 없는 값은 CSS에서 무시되고 ThemeContext가 기본값으로 되돌린다
+      var accent = localStorage.getItem('accent');
+      if (accent) root.dataset.accent = accent;
+      var fontSize = localStorage.getItem('fontSize');
+      if (fontSize) root.dataset.fontSize = fontSize;
+    } catch (e) { /* 저장소 접근 불가 시 기본값 유지 */ }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

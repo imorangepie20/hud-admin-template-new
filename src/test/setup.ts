@@ -33,4 +33,6 @@ afterEach(() => {
     viewportWidth = 1440
     localStorage.clear()
     document.documentElement.className = ''
+    delete document.documentElement.dataset.accent
+    delete document.documentElement.dataset.fontSize
 })
