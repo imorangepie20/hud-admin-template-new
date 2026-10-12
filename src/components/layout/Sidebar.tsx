@@ -28,11 +28,18 @@ interface SidebarProps {
     onExpand: () => void
 }
 
+interface SubMenuItem {
+    title: string
+    path: string
+    // 지정하면 이 접두사로 시작하는 경로에서도 활성 표시 (예: /email/detail/:id)
+    matchPrefix?: string
+}
+
 interface MenuItem {
     title: string
     icon: React.ReactNode
     path?: string
-    children?: { title: string; path: string }[]
+    children?: SubMenuItem[]
 }
 
 const menuItems: MenuItem[] = [
@@ -44,7 +51,7 @@ const menuItems: MenuItem[] = [
         children: [
             { title: 'Inbox', path: '/email/inbox' },
             { title: 'Compose', path: '/email/compose' },
-            { title: 'Detail', path: '/email/detail/1' },
+            { title: 'Detail', path: '/email/detail/1', matchPrefix: '/email/detail/' },
         ],
     },
     { title: 'Widgets', icon: <Grid3X3 size={20} />, path: '/widgets' },
@@ -113,8 +120,11 @@ const menuItems: MenuItem[] = [
     { title: 'Settings', icon: <Settings size={20} />, path: '/settings' },
 ]
 
+const isChildActive = (child: SubMenuItem, pathname: string) =>
+    pathname === child.path || (!!child.matchPrefix && pathname.startsWith(child.matchPrefix))
+
 const findParentTitle = (pathname: string) =>
-    menuItems.find(item => item.children?.some(child => child.path === pathname))?.title
+    menuItems.find(item => item.children?.some(child => isChildActive(child, pathname)))?.title
 
 const Sidebar = ({ collapsed, mobileOpen, onExpand }: SidebarProps) => {
     const location = useLocation()
@@ -156,9 +166,9 @@ const Sidebar = ({ collapsed, mobileOpen, onExpand }: SidebarProps) => {
         return location.pathname === path
     }
 
-    const isParentActive = (children?: { path: string }[]) => {
+    const isParentActive = (children?: SubMenuItem[]) => {
         if (!children) return false
-        return children.some(child => location.pathname === child.path)
+        return children.some(child => isChildActive(child, location.pathname))
     }
 
     return (
@@ -214,7 +224,7 @@ const Sidebar = ({ collapsed, mobileOpen, onExpand }: SidebarProps) => {
                                                 <li key={child.path}>
                                                     <Link
                                                         to={child.path}
-                                                        className={`block px-3 py-2 rounded-lg text-sm transition-hud ${isActive(child.path)
+                                                        className={`block px-3 py-2 rounded-lg text-sm transition-hud ${isChildActive(child, location.pathname)
                                                             ? 'text-hud-accent-primary bg-hud-accent-primary/10'
                                                             : 'text-hud-text-secondary hover:text-hud-text-primary hover:bg-hud-bg-hover'
                                                             }`}
