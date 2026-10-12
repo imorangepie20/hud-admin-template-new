@@ -72,9 +72,9 @@ const Login = () => {
                                 />
                                 <span className="text-sm text-hud-text-secondary">Remember me</span>
                             </label>
-                            <a href="#" className="text-sm text-hud-accent-primary hover:underline">
+                            <Link to="/coming-soon" className="text-sm text-hud-accent-primary hover:underline">
                                 Forgot password?
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Submit */}

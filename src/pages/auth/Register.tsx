@@ -103,9 +103,9 @@ const Register = () => {
                             />
                             <span className="text-sm text-hud-text-secondary">
                                 I agree to the{' '}
-                                <a href="#" className="text-hud-accent-primary hover:underline">Terms of Service</a>
+                                <Link to="/coming-soon" className="text-hud-accent-primary hover:underline">Terms of Service</Link>
                                 {' '}and{' '}
-                                <a href="#" className="text-hud-accent-primary hover:underline">Privacy Policy</a>
+                                <Link to="/coming-soon" className="text-hud-accent-primary hover:underline">Privacy Policy</Link>
                             </span>
                         </label>
 

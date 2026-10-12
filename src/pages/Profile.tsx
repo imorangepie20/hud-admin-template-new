@@ -14,6 +14,7 @@ import {
 } from 'lucide-react'
 import HudCard from '../components/common/HudCard'
 import Button from '../components/common/Button'
+import { Link } from 'react-router-dom'
 
 const skills = [
     { name: 'React', level: 95 },
@@ -127,22 +128,22 @@ const Profile = () => {
                             <LinkIcon size={18} className="text-hud-accent-primary" />
                             <div>
                                 <p className="text-sm text-hud-text-muted">Website</p>
-                                <a href="#" className="text-sm text-hud-accent-primary hover:underline">www.portfolio.dev</a>
+                                <Link to="/coming-soon" className="text-sm text-hud-accent-primary hover:underline">www.portfolio.dev</Link>
                             </div>
                         </div>
                     </div>
 
                     {/* Social Links */}
                     <div className="flex items-center gap-3 mt-6 pt-6 border-t border-hud-border-secondary">
-                        <a href="#" className="p-2 rounded-lg bg-hud-bg-primary hover:bg-hud-bg-hover text-hud-text-secondary hover:text-hud-text-primary transition-hud">
+                        <Link to="/coming-soon" aria-label="GitHub" className="p-2 rounded-lg bg-hud-bg-primary hover:bg-hud-bg-hover text-hud-text-secondary hover:text-hud-text-primary transition-hud">
                             <Github size={20} />
-                        </a>
-                        <a href="#" className="p-2 rounded-lg bg-hud-bg-primary hover:bg-hud-bg-hover text-hud-text-secondary hover:text-hud-text-primary transition-hud">
+                        </Link>
+                        <Link to="/coming-soon" aria-label="Twitter" className="p-2 rounded-lg bg-hud-bg-primary hover:bg-hud-bg-hover text-hud-text-secondary hover:text-hud-text-primary transition-hud">
                             <Twitter size={20} />
-                        </a>
-                        <a href="#" className="p-2 rounded-lg bg-hud-bg-primary hover:bg-hud-bg-hover text-hud-text-secondary hover:text-hud-text-primary transition-hud">
+                        </Link>
+                        <Link to="/coming-soon" aria-label="LinkedIn" className="p-2 rounded-lg bg-hud-bg-primary hover:bg-hud-bg-hover text-hud-text-secondary hover:text-hud-text-primary transition-hud">
                             <Linkedin size={20} />
-                        </a>
+                        </Link>
                     </div>
                 </HudCard>
 

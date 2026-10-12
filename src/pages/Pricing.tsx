@@ -1,6 +1,7 @@
 import { Check } from 'lucide-react'
 import HudCard from '../components/common/HudCard'
 import Button from '../components/common/Button'
+import { Link } from 'react-router-dom'
 
 const plans = [
     {
@@ -164,7 +165,7 @@ const Pricing = () => {
             {/* Contact */}
             <div className="text-center">
                 <p className="text-hud-text-secondary">
-                    Need a custom plan? <a href="#" className="text-hud-accent-primary hover:underline">Contact our sales team</a>
+                    Need a custom plan? <Link to="/coming-soon" className="text-hud-accent-primary hover:underline">Contact our sales team</Link>
                 </p>
             </div>
         </div>
