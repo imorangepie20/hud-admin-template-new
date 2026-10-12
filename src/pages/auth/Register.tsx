@@ -16,7 +16,7 @@ const Register = () => {
                 {/* Logo */}
                 <div className="text-center mb-8">
                     <div className="inline-flex items-center gap-3 mb-6">
-                        <div className="w-12 h-12 bg-gradient-to-br from-hud-accent-primary to-hud-accent-info rounded-lg flex items-center justify-center font-bold text-xl text-hud-bg-primary">
+                        <div className="w-12 h-12 bg-linear-to-br from-hud-accent-primary to-hud-accent-info rounded-lg flex items-center justify-center font-bold text-xl text-hud-bg-primary">
                             H
                         </div>
                         <span className="font-bold text-2xl text-hud-text-primary text-glow">ALPHA TEAM</span>

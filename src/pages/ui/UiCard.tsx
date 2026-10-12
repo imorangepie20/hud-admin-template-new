@@ -21,7 +21,7 @@ const UiCard = () => {
                 </div>
 
                 <div className="hud-card hud-card-bottom rounded-lg overflow-hidden">
-                    <div className="h-32 bg-gradient-to-br from-hud-accent-primary/30 to-hud-accent-info/30" />
+                    <div className="h-32 bg-linear-to-br from-hud-accent-primary/30 to-hud-accent-info/30" />
                     <div className="p-5">
                         <h3 className="font-semibold text-hud-text-primary">Card with Image</h3>
                         <p className="text-sm text-hud-text-secondary mt-2">Cards can include images at the top.</p>
@@ -46,10 +46,10 @@ const UiCard = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Social Card */}
                     <div className="hud-card hud-card-bottom rounded-lg overflow-hidden">
-                        <div className="h-40 bg-gradient-to-br from-hud-accent-secondary/30 via-hud-accent-primary/20 to-hud-accent-info/30" />
+                        <div className="h-40 bg-linear-to-br from-hud-accent-secondary/30 via-hud-accent-primary/20 to-hud-accent-info/30" />
                         <div className="p-4">
                             <div className="flex items-center gap-3 mb-3">
-                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-hud-accent-primary to-hud-accent-info" />
+                                <div className="w-10 h-10 rounded-full bg-linear-to-br from-hud-accent-primary to-hud-accent-info" />
                                 <div>
                                     <p className="font-medium text-hud-text-primary text-sm">John Doe</p>
                                     <p className="text-xs text-hud-text-muted">2 hours ago</p>
@@ -78,7 +78,7 @@ const UiCard = () => {
 
                     {/* Product Card */}
                     <div className="hud-card hud-card-bottom rounded-lg overflow-hidden group">
-                        <div className="relative h-40 bg-gradient-to-br from-hud-accent-info/30 to-hud-accent-primary/30 flex items-center justify-center">
+                        <div className="relative h-40 bg-linear-to-br from-hud-accent-info/30 to-hud-accent-primary/30 flex items-center justify-center">
                             <span className="text-5xl">🎧</span>
                             <div className="absolute inset-0 bg-hud-bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
                                 <button className="p-2 bg-hud-accent-primary text-hud-bg-primary rounded-full"><Heart size={16} /></button>
@@ -106,7 +106,7 @@ const UiCard = () => {
                             {[40, 60, 45, 80, 65, 90, 75, 85, 70, 95, 80, 100].map((h, i) => (
                                 <div
                                     key={i}
-                                    className="flex-1 bg-gradient-to-t from-hud-accent-primary to-hud-accent-info rounded-t"
+                                    className="flex-1 bg-linear-to-t from-hud-accent-primary to-hud-accent-info rounded-t"
                                     style={{ height: `${h}%` }}
                                 />
                             ))}
@@ -124,7 +124,7 @@ const UiCard = () => {
                         { title: 'Mobile App v2.0', desc: 'Major app redesign', progress: 30, status: 'Planning' },
                     ].map((item, i) => (
                         <div key={i} className="hud-card hud-card-bottom rounded-lg p-4 flex items-center gap-4">
-                            <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-hud-accent-primary/30 to-hud-accent-info/30 flex items-center justify-center shrink-0">
+                            <div className="w-16 h-16 rounded-lg bg-linear-to-br from-hud-accent-primary/30 to-hud-accent-info/30 flex items-center justify-center shrink-0">
                                 <span className="text-2xl">📊</span>
                             </div>
                             <div className="flex-1 min-w-0">
@@ -162,7 +162,7 @@ const UiCard = () => {
                     ].map((item) => (
                         <div
                             key={item.label}
-                            className={`rounded-lg p-5 bg-gradient-to-br ${item.color} text-white`}
+                            className={`rounded-lg p-5 bg-linear-to-br ${item.color} text-white`}
                         >
                             <h3 className="font-semibold">{item.label} Card</h3>
                             <p className="text-sm opacity-80 mt-2">With gradient background</p>

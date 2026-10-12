@@ -97,7 +97,7 @@ const UiBootstrap = () => {
                         </div>
                         <div className="h-3 bg-hud-bg-primary rounded-full overflow-hidden">
                             <div
-                                className="h-full bg-gradient-to-r from-hud-accent-primary via-hud-accent-info to-hud-accent-primary bg-[length:20px_20px] rounded-full animate-pulse"
+                                className="h-full bg-linear-to-r from-hud-accent-primary via-hud-accent-info to-hud-accent-primary bg-size-[20px_20px] rounded-full animate-pulse"
                                 style={{ width: '60%' }}
                             />
                         </div>

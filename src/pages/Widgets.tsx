@@ -199,7 +199,7 @@ const Widgets = () => {
                                 </div>
                                 <div className="h-2 bg-hud-bg-primary rounded-full overflow-hidden">
                                     <div
-                                        className={`h-full bg-gradient-to-r ${item.color} rounded-full transition-all duration-500`}
+                                        className={`h-full bg-linear-to-r ${item.color} rounded-full transition-all duration-500`}
                                         style={{ width: `${item.progress}%` }}
                                     />
                                 </div>

@@ -170,7 +170,7 @@ const ScrumBoard = () => {
                                             )}
                                         </div>
                                         {task.assignee && (
-                                            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-hud-accent-primary to-hud-accent-info flex items-center justify-center text-xs text-hud-bg-primary font-medium">
+                                            <div className="w-6 h-6 rounded-full bg-linear-to-br from-hud-accent-primary to-hud-accent-info flex items-center justify-center text-xs text-hud-bg-primary font-medium">
                                                 {task.assignee}
                                             </div>
                                         )}

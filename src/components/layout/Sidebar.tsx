@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import {
     LayoutDashboard,
@@ -25,7 +25,8 @@ import {
 
 interface SidebarProps {
     collapsed: boolean
-    onToggle: () => void
+    mobileOpen: boolean
+    onExpand: () => void
 }
 
 interface MenuItem {
@@ -113,7 +114,7 @@ const menuItems: MenuItem[] = [
     { title: 'Settings', icon: <Settings size={20} />, path: '/settings' },
 ]
 
-const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
+const Sidebar = ({ collapsed, mobileOpen, onExpand }: SidebarProps) => {
     const location = useLocation()
     const [expandedMenus, setExpandedMenus] = useState<string[]>([])
 
@@ -123,6 +124,26 @@ const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
                 ? prev.filter(item => item !== title)
                 : [...prev, title]
         )
+    }
+
+    // 현재 경로가 속한 상위 메뉴는 자동으로 펼친다
+    useEffect(() => {
+        const parent = menuItems.find(item =>
+            item.children?.some(child => child.path === location.pathname)
+        )
+        if (parent) {
+            setExpandedMenus(prev => (prev.includes(parent.title) ? prev : [...prev, parent.title]))
+        }
+    }, [location.pathname])
+
+    // 접힌 상태에서 상위 메뉴를 누르면 사이드바를 펼치고 해당 서브메뉴를 연다
+    const handleParentClick = (title: string) => {
+        if (collapsed) {
+            onExpand()
+            setExpandedMenus(prev => (prev.includes(title) ? prev : [...prev, title]))
+            return
+        }
+        toggleMenu(title)
     }
 
     const isActive = (path?: string) => {
@@ -137,13 +158,13 @@ const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
 
     return (
         <aside
-            className={`fixed top-0 left-0 h-full bg-hud-bg-secondary border-r border-hud-border-secondary z-50 transition-all duration-300 ${collapsed ? 'w-20' : 'w-64'
+            className={`fixed top-0 left-0 h-full bg-hud-bg-secondary border-r border-hud-border-secondary z-50 transition-all duration-300 lg:translate-x-0 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'} ${collapsed ? 'w-20' : 'w-64'
                 }`}
         >
             {/* Logo */}
             <div className="h-16 flex items-center justify-center border-b border-hud-border-secondary">
                 <Link to="/" className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-hud-accent-primary to-hud-accent-info rounded-lg flex items-center justify-center font-bold text-hud-bg-primary">
+                    <div className="w-10 h-10 bg-linear-to-br from-hud-accent-primary to-hud-accent-info rounded-lg flex items-center justify-center font-bold text-hud-bg-primary">
                         H
                     </div>
                     {!collapsed && (
@@ -161,7 +182,8 @@ const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
                                 // Menu with children
                                 <div>
                                     <button
-                                        onClick={() => toggleMenu(item.title)}
+                                        onClick={() => handleParentClick(item.title)}
+                                        title={collapsed ? item.title : undefined}
                                         className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-hud ${isParentActive(item.children)
                                             ? 'bg-hud-accent-primary/10 text-hud-accent-primary'
                                             : 'text-hud-text-secondary hover:bg-hud-bg-hover hover:text-hud-text-primary'
@@ -203,6 +225,7 @@ const Sidebar = ({ collapsed, onToggle }: SidebarProps) => {
                                 // Single menu item
                                 <Link
                                     to={item.path!}
+                                    title={collapsed ? item.title : undefined}
                                     className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-hud ${isActive(item.path)
                                         ? 'menu-active text-hud-accent-primary'
                                         : 'text-hud-text-secondary hover:bg-hud-bg-hover hover:text-hud-text-primary'

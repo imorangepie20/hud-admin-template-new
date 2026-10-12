@@ -59,7 +59,7 @@ const Gallery = () => {
                         onClick={() => setSelectedImage(item)}
                         className="group relative aspect-square rounded-lg overflow-hidden cursor-pointer hud-card hud-card-bottom"
                     >
-                        <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-80`} />
+                        <div className={`absolute inset-0 bg-linear-to-br ${item.color} opacity-80`} />
                         <div className="absolute inset-0 flex items-center justify-center">
                             <span className="text-4xl">🖼️</span>
                         </div>
@@ -93,7 +93,7 @@ const Gallery = () => {
                         </button>
 
                         {/* Image */}
-                        <div className={`aspect-video rounded-lg overflow-hidden bg-gradient-to-br ${selectedImage.color}`}>
+                        <div className={`aspect-video rounded-lg overflow-hidden bg-linear-to-br ${selectedImage.color}`}>
                             <div className="w-full h-full flex items-center justify-center">
                                 <span className="text-8xl">🖼️</span>
                             </div>

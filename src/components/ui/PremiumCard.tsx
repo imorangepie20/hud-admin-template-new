@@ -34,7 +34,7 @@ const PremiumCard: React.FC<PremiumCardProps> = ({ title, value, change, icon, v
       className={`relative p-5 rounded-xl border backdrop-blur-lg bg-hud-bg-card ${variantClasses[variant]} shadow-hud transition-hud`}
     >
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-hud-accent-primary/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 rounded-xl bg-linear-to-br from-hud-accent-primary/5 to-transparent pointer-events-none" />
 
       <div className="relative flex items-center justify-between mb-3">
         <h3 className="text-sm font-medium uppercase tracking-wider text-hud-text-muted">{title}</h3>

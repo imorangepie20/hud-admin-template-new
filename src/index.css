@@ -73,18 +73,21 @@
 }
 
 /* ===== Global Styles ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* v4: 레이어 밖 CSS는 유틸리티보다 우선하므로 리셋은 base 레이어에 둔다 */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-body {
-  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
-  background-color: var(--hud-bg-primary);
-  color: var(--hud-text-primary);
-  min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  body {
+    font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+    background-color: var(--hud-bg-primary);
+    color: var(--hud-text-primary);
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 }
 
 /* HUD Grid Background */

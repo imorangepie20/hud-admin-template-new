@@ -45,7 +45,7 @@ const ComingSoon = () => {
             <div className="text-center max-w-2xl">
                 {/* Icon */}
                 <div className="mb-8">
-                    <div className="w-24 h-24 mx-auto bg-gradient-to-br from-hud-accent-primary/20 to-hud-accent-info/20 rounded-full flex items-center justify-center">
+                    <div className="w-24 h-24 mx-auto bg-linear-to-br from-hud-accent-primary/20 to-hud-accent-info/20 rounded-full flex items-center justify-center">
                         <Rocket size={48} className="text-hud-accent-primary animate-bounce" />
                     </div>
                 </div>
@@ -103,7 +103,7 @@ const ComingSoon = () => {
                         <span className="text-hud-accent-primary font-mono">75%</span>
                     </div>
                     <div className="h-2 bg-hud-bg-secondary rounded-full overflow-hidden">
-                        <div className="h-full w-3/4 bg-gradient-to-r from-hud-accent-primary to-hud-accent-info rounded-full" />
+                        <div className="h-full w-3/4 bg-linear-to-r from-hud-accent-primary to-hud-accent-info rounded-full" />
                     </div>
                 </div>
 

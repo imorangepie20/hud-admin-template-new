@@ -35,7 +35,7 @@ const ChartJs = () => {
                         {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'].map((month, i) => (
                             <div key={month} className="flex-1 flex flex-col items-center gap-2">
                                 <div
-                                    className="w-full bg-gradient-to-t from-hud-accent-primary to-hud-accent-info rounded-t transition-all duration-500 hover:opacity-80"
+                                    className="w-full bg-linear-to-t from-hud-accent-primary to-hud-accent-info rounded-t transition-all duration-500 hover:opacity-80"
                                     style={{ height: `${(barData[i] / maxValue) * 100}%` }}
                                 />
                                 <span className="text-xs text-hud-text-muted">{month}</span>
@@ -251,7 +251,7 @@ const ChartJs = () => {
                                 </div>
                                 <div className="h-3 bg-hud-bg-primary rounded-full overflow-hidden">
                                     <div
-                                        className="h-full bg-gradient-to-r from-hud-accent-primary to-hud-accent-info rounded-full transition-all duration-500"
+                                        className="h-full bg-linear-to-r from-hud-accent-primary to-hud-accent-info rounded-full transition-all duration-500"
                                         style={{ width: `${item.value}%` }}
                                     />
                                 </div>

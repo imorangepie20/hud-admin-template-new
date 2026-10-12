@@ -101,7 +101,7 @@ const Analytics = () => {
                             <div key={data.hour} className="flex-1 flex flex-col items-center gap-2">
                                 <div className="w-full relative group">
                                     <div
-                                        className="w-full bg-gradient-to-t from-hud-accent-info to-hud-accent-info/30 rounded-t hover:from-hud-accent-primary hover:to-hud-accent-secondary transition-all duration-300 cursor-pointer"
+                                        className="w-full bg-linear-to-t from-hud-accent-info to-hud-accent-info/30 rounded-t hover:from-hud-accent-primary hover:to-hud-accent-secondary transition-all duration-300 cursor-pointer"
                                         style={{ height: `${(data.value / maxHourlyValue) * 200}px` }}
                                     />
                                     <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-hud-bg-secondary border border-hud-border-secondary px-2 py-1 rounded text-xs text-hud-text-primary opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
@@ -135,7 +135,7 @@ const Analytics = () => {
                                 </div>
                                 <div className="h-2 bg-hud-bg-primary rounded-full overflow-hidden">
                                     <div
-                                        className="h-full bg-gradient-to-r from-hud-accent-primary to-hud-accent-info rounded-full"
+                                        className="h-full bg-linear-to-r from-hud-accent-primary to-hud-accent-info rounded-full"
                                         style={{ width: `${item.percentage}%` }}
                                     />
                                 </div>
@@ -151,7 +151,7 @@ const Analytics = () => {
                 <HudCard title="Traffic Sources" subtitle="Where your visitors come from">
                     <div className="flex gap-6">
                         {/* Donut Chart Placeholder */}
-                        <div className="relative w-40 h-40 flex-shrink-0">
+                        <div className="relative w-40 h-40 shrink-0">
                             <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
                                 {trafficSources.reduce((acc, item, i) => {
                                     const prevTotal = acc.total

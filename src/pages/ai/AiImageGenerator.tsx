@@ -189,7 +189,7 @@ const AiImageGenerator = () => {
                             {[...generatedImages, ...sampleImages].map((image) => (
                                 <div
                                     key={image.id}
-                                    className="group relative aspect-square bg-gradient-to-br from-hud-accent-primary/20 via-hud-accent-info/20 to-hud-accent-secondary/20 rounded-lg overflow-hidden"
+                                    className="group relative aspect-square bg-linear-to-br from-hud-accent-primary/20 via-hud-accent-info/20 to-hud-accent-secondary/20 rounded-lg overflow-hidden"
                                 >
                                     {/* Placeholder gradient for demo */}
                                     <div className="absolute inset-0 flex items-center justify-center">
@@ -197,7 +197,7 @@ const AiImageGenerator = () => {
                                     </div>
 
                                     {/* Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                                         <div className="absolute bottom-0 left-0 right-0 p-4">
                                             <p className="text-sm text-white line-clamp-2">{image.prompt}</p>
                                             <div className="flex items-center justify-between mt-2">

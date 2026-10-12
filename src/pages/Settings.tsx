@@ -45,7 +45,7 @@ const Settings = () => {
 
             <div className="flex gap-6">
                 {/* Sidebar */}
-                <div className="w-56 flex-shrink-0">
+                <div className="w-56 shrink-0">
                     <HudCard noPadding>
                         <div className="py-2">
                             {settingsSections.map((section) => (

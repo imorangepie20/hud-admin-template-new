@@ -91,7 +91,7 @@ const Products = () => {
                     {filteredProducts.map((product) => (
                         <div key={product.id} className="hud-card hud-card-bottom rounded-lg overflow-hidden group">
                             {/* Image */}
-                            <div className="relative h-48 bg-gradient-to-br from-hud-accent-primary/10 to-hud-accent-info/10 flex items-center justify-center">
+                            <div className="relative h-48 bg-linear-to-br from-hud-accent-primary/10 to-hud-accent-info/10 flex items-center justify-center">
                                 <span className="text-6xl group-hover:scale-110 transition-transform">{product.image}</span>
                                 {product.oldPrice && (
                                     <span className="absolute top-3 left-3 px-2 py-1 bg-hud-accent-danger text-white text-xs rounded">
@@ -144,7 +144,7 @@ const Products = () => {
                 <div className="space-y-4">
                     {filteredProducts.map((product) => (
                         <div key={product.id} className="hud-card hud-card-bottom rounded-lg p-4 flex items-center gap-4">
-                            <div className="w-20 h-20 bg-gradient-to-br from-hud-accent-primary/10 to-hud-accent-info/10 rounded-lg flex items-center justify-center shrink-0">
+                            <div className="w-20 h-20 bg-linear-to-br from-hud-accent-primary/10 to-hud-accent-info/10 rounded-lg flex items-center justify-center shrink-0">
                                 <span className="text-3xl">{product.image}</span>
                             </div>
                             <div className="flex-1 min-w-0">

@@ -116,7 +116,7 @@ const TableElements = () => {
                                     </td>
                                     <td className="px-5 py-4">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-hud-accent-primary to-hud-accent-info flex items-center justify-center text-xs text-hud-bg-primary font-medium">
+                                            <div className="w-8 h-8 rounded-full bg-linear-to-br from-hud-accent-primary to-hud-accent-info flex items-center justify-center text-xs text-hud-bg-primary font-medium">
                                                 {row.name.split(' ').map(n => n[0]).join('')}
                                             </div>
                                             <span className="text-sm text-hud-text-primary">{row.name}</span>

@@ -126,9 +126,9 @@ const Dashboard = () => {
                         {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, i) => {
                             const heights = [40, 55, 45, 60, 75, 65, 80, 70, 85, 75, 90, 95]
                             return (
-                                <div key={month} className="flex-1 flex flex-col items-center gap-2">
+                                <div key={month} className="flex-1 h-full flex flex-col justify-end items-center gap-2">
                                     <div
-                                        className="w-full bg-gradient-to-t from-hud-accent-primary to-hud-accent-primary/50 rounded-t hover:from-hud-accent-primary hover:to-hud-accent-secondary transition-all duration-300 cursor-pointer"
+                                        className="w-full bg-linear-to-t from-hud-accent-primary to-hud-accent-primary/50 rounded-t hover:from-hud-accent-primary hover:to-hud-accent-secondary transition-all duration-300 cursor-pointer"
                                         style={{ height: `${heights[i]}%` }}
                                     />
                                     <span className="text-xs text-hud-text-muted">{month}</span>
@@ -284,7 +284,7 @@ const Dashboard = () => {
                         { action: 'Review submitted', detail: '5-star review for Smart Watch Pro by John D.', time: '20 minutes ago', type: 'review' },
                     ].map((activity, i) => (
                         <div key={i} className="flex items-start gap-4 p-3 rounded-lg hover:bg-hud-bg-hover transition-hud">
-                            <div className={`w-2 h-2 mt-2 rounded-full flex-shrink-0 ${activity.type === 'order' ? 'bg-hud-accent-primary' :
+                            <div className={`w-2 h-2 mt-2 rounded-full shrink-0 ${activity.type === 'order' ? 'bg-hud-accent-primary' :
                                     activity.type === 'user' ? 'bg-hud-accent-info' :
                                         activity.type === 'payment' ? 'bg-hud-accent-success' :
                                             activity.type === 'warning' ? 'bg-hud-accent-warning' :

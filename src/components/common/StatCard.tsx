@@ -37,7 +37,7 @@ const StatCard = ({
     }
 
     return (
-        <div className={`hud-card hud-card-bottom rounded-lg bg-gradient-to-br ${variantStyles[variant]} p-5`}>
+        <div className={`hud-card hud-card-bottom rounded-lg bg-linear-to-br ${variantStyles[variant]} p-5`}>
             <div className="flex items-start justify-between">
                 <div className="flex-1">
                     <p className="text-sm text-hud-text-muted uppercase tracking-wide">{title}</p>

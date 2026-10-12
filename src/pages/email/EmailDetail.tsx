@@ -111,7 +111,7 @@ const EmailDetail = () => {
                 {/* Sender Info */}
                 <div className="flex items-start justify-between pb-4 border-b border-hud-border-secondary">
                     <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-hud-accent-primary to-hud-accent-info flex items-center justify-center text-hud-bg-primary font-semibold">
+                        <div className="w-12 h-12 rounded-full bg-linear-to-br from-hud-accent-primary to-hud-accent-info flex items-center justify-center text-hud-bg-primary font-semibold">
                             {emailData.from.avatar}
                         </div>
                         <div>

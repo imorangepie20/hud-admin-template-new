@@ -46,7 +46,7 @@ const Profile = () => {
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
                     {/* Avatar */}
                     <div className="relative">
-                        <div className="w-32 h-32 rounded-full bg-gradient-to-br from-hud-accent-primary via-hud-accent-info to-hud-accent-secondary p-1">
+                        <div className="w-32 h-32 rounded-full bg-linear-to-br from-hud-accent-primary via-hud-accent-info to-hud-accent-secondary p-1">
                             <div className="w-full h-full rounded-full bg-hud-bg-secondary flex items-center justify-center">
                                 <User size={48} className="text-hud-accent-primary" />
                             </div>
@@ -157,7 +157,7 @@ const Profile = () => {
                                 </div>
                                 <div className="h-2 bg-hud-bg-primary rounded-full overflow-hidden">
                                     <div
-                                        className="h-full bg-gradient-to-r from-hud-accent-primary to-hud-accent-info rounded-full transition-all duration-500"
+                                        className="h-full bg-linear-to-r from-hud-accent-primary to-hud-accent-info rounded-full transition-all duration-500"
                                         style={{ width: `${skill.level}%` }}
                                     />
                                 </div>

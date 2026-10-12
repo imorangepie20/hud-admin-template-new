@@ -163,7 +163,7 @@ const EmailInbox = () => {
 
             <div className="flex gap-6">
                 {/* Sidebar */}
-                <div className="w-56 flex-shrink-0 space-y-6">
+                <div className="w-56 shrink-0 space-y-6">
                     {/* Folders */}
                     <HudCard noPadding>
                         <div className="py-2">
@@ -281,21 +281,21 @@ const EmailInbox = () => {
                                                 {email.from}
                                             </span>
                                             <span
-                                                className="w-2 h-2 rounded-full flex-shrink-0"
+                                                className="w-2 h-2 rounded-full shrink-0"
                                                 style={{ backgroundColor: getLabelColor(email.label) }}
                                             />
                                         </div>
                                         <div className="flex items-center gap-2 mt-0.5">
                                             {!email.isRead ? (
-                                                <Mail size={14} className="text-hud-accent-primary flex-shrink-0" />
+                                                <Mail size={14} className="text-hud-accent-primary shrink-0" />
                                             ) : (
-                                                <MailOpen size={14} className="text-hud-text-muted flex-shrink-0" />
+                                                <MailOpen size={14} className="text-hud-text-muted shrink-0" />
                                             )}
                                             <span className={`text-sm truncate ${!email.isRead ? 'font-medium text-hud-text-primary' : 'text-hud-text-secondary'}`}>
                                                 {email.subject}
                                             </span>
                                             {email.hasAttachment && (
-                                                <Paperclip size={14} className="text-hud-text-muted flex-shrink-0" />
+                                                <Paperclip size={14} className="text-hud-text-muted shrink-0" />
                                             )}
                                         </div>
                                         <p className="text-xs text-hud-text-muted mt-1 truncate">{email.preview}</p>

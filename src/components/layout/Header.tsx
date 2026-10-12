@@ -114,7 +114,7 @@ const Header = ({ onMenuToggle }: HeaderProps) => {
                                     >
                                         <div className="flex items-start gap-3">
                                             {notif.isNew && (
-                                                <span className="w-2 h-2 mt-2 bg-hud-accent-primary rounded-full flex-shrink-0" />
+                                                <span className="w-2 h-2 mt-2 bg-hud-accent-primary rounded-full shrink-0" />
                                             )}
                                             <div className={notif.isNew ? '' : 'ml-5'}>
                                                 <p className="text-sm text-hud-text-primary">{notif.title}</p>
@@ -142,7 +142,7 @@ const Header = ({ onMenuToggle }: HeaderProps) => {
                         }}
                         className="flex items-center gap-2 p-2 rounded-lg hover:bg-hud-bg-hover transition-hud"
                     >
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-hud-accent-primary to-hud-accent-secondary flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-linear-to-br from-hud-accent-primary to-hud-accent-secondary flex items-center justify-center">
                             <User size={16} className="text-hud-bg-primary" />
                         </div>
                         <span className="hidden md:block text-sm text-hud-text-primary">Admin</span>

@@ -98,9 +98,9 @@ const AiChat = () => {
                             className={`flex gap-4 ${message.role === 'user' ? 'flex-row-reverse' : ''}`}
                         >
                             <div
-                                className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${message.role === 'user'
+                                className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${message.role === 'user'
                                         ? 'bg-hud-accent-info'
-                                        : 'bg-gradient-to-br from-hud-accent-primary to-hud-accent-secondary'
+                                        : 'bg-linear-to-br from-hud-accent-primary to-hud-accent-secondary'
                                     }`}
                             >
                                 {message.role === 'user' ? (
@@ -132,7 +132,7 @@ const AiChat = () => {
 
                     {isTyping && (
                         <div className="flex gap-4">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-hud-accent-primary to-hud-accent-secondary flex items-center justify-center">
+                            <div className="w-10 h-10 rounded-full bg-linear-to-br from-hud-accent-primary to-hud-accent-secondary flex items-center justify-center">
                                 <Bot size={18} className="text-hud-bg-primary" />
                             </div>
                             <div className="bg-hud-bg-primary p-4 rounded-2xl rounded-tl-none">

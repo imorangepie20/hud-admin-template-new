@@ -8,7 +8,7 @@ const Error404 = () => {
             <div className="text-center max-w-lg">
                 {/* 404 Animation */}
                 <div className="relative mb-8">
-                    <div className="text-[150px] md:text-[200px] font-bold leading-none text-transparent bg-clip-text bg-gradient-to-br from-hud-accent-primary via-hud-accent-info to-hud-accent-secondary animate-pulse">
+                    <div className="text-[150px] md:text-[200px] font-bold leading-none text-transparent bg-clip-text bg-linear-to-br from-hud-accent-primary via-hud-accent-info to-hud-accent-secondary animate-pulse">
                         404
                     </div>
                     <div className="absolute inset-0 text-[150px] md:text-[200px] font-bold leading-none text-hud-accent-primary/10 blur-xl">
