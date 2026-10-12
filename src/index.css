@@ -1,5 +1,62 @@
 @import "tailwindcss";
-@config "../tailwind.config.js";
+
+/* html.dark 클래스로 다크 모드 전환 (ThemeContext에서 토글) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ===== Tailwind Theme ===== */
+/* 값은 아래 :root / .dark 의 CSS 변수를 참조하므로 inline으로 등록한다 */
+@theme inline {
+  /* HUD Theme Colors */
+  --color-hud-bg-primary: var(--hud-bg-primary);
+  --color-hud-bg-secondary: var(--hud-bg-secondary);
+  --color-hud-bg-card: var(--hud-bg-card);
+  --color-hud-bg-hover: var(--hud-bg-hover);
+
+  --color-hud-accent-primary: var(--hud-accent-primary);
+  --color-hud-accent-secondary: var(--hud-accent-secondary);
+  --color-hud-accent-warning: var(--hud-accent-warning);
+  --color-hud-accent-info: var(--hud-accent-info);
+  --color-hud-accent-success: var(--hud-accent-success);
+  --color-hud-accent-danger: var(--hud-accent-danger);
+
+  --color-hud-text-primary: var(--hud-text-primary);
+  --color-hud-text-secondary: var(--hud-text-secondary);
+  --color-hud-text-muted: var(--hud-text-muted);
+
+  --color-hud-border-primary: var(--hud-border-primary);
+  --color-hud-border-secondary: var(--hud-border-secondary);
+
+  /* Shadows */
+  --shadow-hud: var(--hud-shadow);
+  --shadow-hud-glow: var(--hud-shadow-glow);
+  --shadow-hud-pink: 0 0 20px rgba(var(--hud-glow-pink-rgb), 0.3);
+}
+
+@theme {
+  /* Fonts */
+  --font-sans: 'Inter', 'Roboto', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Animations */
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-fade-in: fadeIn 0.3s ease-out;
+  --animate-slide-in: slideIn 0.3s ease-out;
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(var(--hud-glow-primary-rgb), 0.2); }
+    50% { box-shadow: 0 0 40px rgba(var(--hud-glow-primary-rgb), 0.4); }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    0% { transform: translateX(-10px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+}
 
 /* ===== Theme CSS Variables ===== */
 /* Light Mode (default) */
