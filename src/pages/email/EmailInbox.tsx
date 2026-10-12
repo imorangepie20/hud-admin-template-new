@@ -160,9 +160,9 @@ const EmailInbox = () => {
                 </Link>
             </div>
 
-            <div className="flex gap-6">
+            <div className="flex flex-col lg:flex-row gap-6">
                 {/* Sidebar */}
-                <div className="w-56 shrink-0 space-y-6">
+                <div className="w-full lg:w-56 shrink-0 space-y-6">
                     {/* Folders */}
                     <HudCard noPadding>
                         <div className="py-2">
@@ -209,10 +209,10 @@ const EmailInbox = () => {
                 </div>
 
                 {/* Email List */}
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                     <HudCard noPadding>
                         {/* Toolbar */}
-                        <div className="flex items-center justify-between px-4 py-3 border-b border-hud-border-secondary">
+                        <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-b border-hud-border-secondary">
                             <div className="flex items-center gap-3">
                                 <input
                                     type="checkbox"
@@ -234,12 +234,12 @@ const EmailInbox = () => {
                                 </button>
                             </div>
 
-                            <div className="relative">
+                            <div className="relative w-full sm:w-auto">
                                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-hud-text-muted" size={16} />
                                 <input
                                     type="text"
                                     placeholder="Search emails..."
-                                    className="w-64 pl-9 pr-4 py-1.5 bg-hud-bg-primary border border-hud-border-secondary rounded-lg text-sm text-hud-text-primary placeholder-hud-text-muted focus:outline-none focus:border-hud-accent-primary transition-hud"
+                                    className="w-full sm:w-64 pl-9 pr-4 py-1.5 bg-hud-bg-primary border border-hud-border-secondary rounded-lg text-sm text-hud-text-primary placeholder-hud-text-muted focus:outline-none focus:border-hud-accent-primary transition-hud"
                                 />
                             </div>
                         </div>

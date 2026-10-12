@@ -211,9 +211,9 @@ const Analytics = () => {
                                     <Globe size={16} className="text-hud-accent-primary" />
                                     <span className="text-sm text-hud-text-primary">{item.country}</span>
                                 </div>
-                                <div className="flex items-center gap-4">
+                                <div className="flex items-center gap-2 sm:gap-4">
                                     <span className="text-sm font-mono text-hud-text-secondary">{item.visitors.toLocaleString()}</span>
-                                    <div className="w-24 h-2 bg-hud-bg-primary rounded-full overflow-hidden">
+                                    <div className="hidden sm:block w-24 h-2 bg-hud-bg-primary rounded-full overflow-hidden">
                                         <div
                                             className="h-full bg-hud-accent-primary rounded-full"
                                             style={{ width: `${item.percentage}%` }}

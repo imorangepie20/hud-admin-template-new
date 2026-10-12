@@ -147,7 +147,7 @@ const FormPlugins = () => {
                         <input
                             type="text"
                             placeholder="username"
-                            className="flex-1 px-4 py-2.5 bg-hud-bg-primary border border-hud-border-secondary rounded-r-lg text-hud-text-primary placeholder-hud-text-muted focus:outline-none focus:border-hud-accent-primary transition-hud"
+                            className="flex-1 min-w-0 px-4 py-2.5 bg-hud-bg-primary border border-hud-border-secondary rounded-r-lg text-hud-text-primary placeholder-hud-text-muted focus:outline-none focus:border-hud-accent-primary transition-hud"
                         />
                     </div>
                     <div className="flex">
@@ -157,7 +157,7 @@ const FormPlugins = () => {
                         <input
                             type="number"
                             placeholder="0.00"
-                            className="flex-1 px-4 py-2.5 bg-hud-bg-primary border border-hud-border-secondary text-hud-text-primary placeholder-hud-text-muted focus:outline-none focus:border-hud-accent-primary transition-hud"
+                            className="flex-1 min-w-0 px-4 py-2.5 bg-hud-bg-primary border border-hud-border-secondary text-hud-text-primary placeholder-hud-text-muted focus:outline-none focus:border-hud-accent-primary transition-hud"
                         />
                         <span className="inline-flex items-center px-4 bg-hud-bg-hover border border-l-0 border-hud-border-secondary rounded-r-lg text-hud-text-muted text-sm">
                             USD
@@ -167,7 +167,7 @@ const FormPlugins = () => {
                         <input
                             type="text"
                             placeholder="https://"
-                            className="flex-1 px-4 py-2.5 bg-hud-bg-primary border border-r-0 border-hud-border-secondary rounded-l-lg text-hud-text-primary placeholder-hud-text-muted focus:outline-none focus:border-hud-accent-primary transition-hud"
+                            className="flex-1 min-w-0 px-4 py-2.5 bg-hud-bg-primary border border-r-0 border-hud-border-secondary rounded-l-lg text-hud-text-primary placeholder-hud-text-muted focus:outline-none focus:border-hud-accent-primary transition-hud"
                         />
                         <button className="px-4 bg-hud-accent-primary text-hud-bg-primary rounded-r-lg font-medium hover:bg-hud-accent-primary/90 transition-hud">
                             Go
@@ -227,7 +227,7 @@ const FormPlugins = () => {
                             <input
                                 type="text"
                                 defaultValue="#00FFCC"
-                                className="flex-1 px-4 py-2.5 bg-hud-bg-primary border border-hud-border-secondary rounded-lg text-hud-text-primary font-mono focus:outline-none focus:border-hud-accent-primary transition-hud"
+                                className="flex-1 min-w-0 px-4 py-2.5 bg-hud-bg-primary border border-hud-border-secondary rounded-lg text-hud-text-primary font-mono focus:outline-none focus:border-hud-accent-primary transition-hud"
                             />
                         </div>
                     </div>
@@ -275,7 +275,7 @@ const FormPlugins = () => {
                                 type="number"
                                 defaultValue="99.99"
                                 step="0.01"
-                                className="flex-1 px-4 py-2.5 bg-hud-bg-primary border border-hud-border-secondary rounded-r-lg text-hud-text-primary focus:outline-none focus:border-hud-accent-primary transition-hud font-mono"
+                                className="flex-1 min-w-0 px-4 py-2.5 bg-hud-bg-primary border border-hud-border-secondary rounded-r-lg text-hud-text-primary focus:outline-none focus:border-hud-accent-primary transition-hud font-mono"
                             />
                         </div>
                     </div>

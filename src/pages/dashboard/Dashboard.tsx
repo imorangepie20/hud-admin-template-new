@@ -122,16 +122,16 @@ const Dashboard = () => {
                         </select>
                     }
                 >
-                    <div className="h-64 flex items-end justify-between gap-2">
+                    <div className="h-64 flex items-end justify-between gap-1 sm:gap-2">
                         {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, i) => {
                             const heights = [40, 55, 45, 60, 75, 65, 80, 70, 85, 75, 90, 95]
                             return (
-                                <div key={month} className="flex-1 h-full flex flex-col justify-end items-center gap-2">
+                                <div key={month} className="flex-1 min-w-0 h-full flex flex-col justify-end items-center gap-2">
                                     <div
                                         className="w-full bg-linear-to-t from-hud-accent-primary to-hud-accent-primary/50 rounded-t hover:from-hud-accent-primary hover:to-hud-accent-secondary transition-all duration-300 cursor-pointer"
                                         style={{ height: `${heights[i]}%` }}
                                     />
-                                    <span className="text-xs text-hud-text-muted">{month}</span>
+                                    <span className="text-[10px] sm:text-xs text-hud-text-muted">{month}</span>
                                 </div>
                             )
                         })}

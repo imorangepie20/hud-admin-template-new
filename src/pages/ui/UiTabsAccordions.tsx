@@ -90,7 +90,7 @@ const UiTabsAccordions = () => {
             {/* Pill Tabs */}
             <HudCard title="Pill Tabs" subtitle="Rounded pill-style tabs">
                 <div>
-                    <div className="flex gap-2 p-1 bg-hud-bg-primary rounded-lg inline-flex">
+                    <div className="flex flex-wrap gap-2 p-1 bg-hud-bg-primary rounded-lg">
                         {tabs.map((tab, i) => (
                             <button
                                 key={tab}
@@ -115,8 +115,8 @@ const UiTabsAccordions = () => {
 
             {/* Vertical Tabs */}
             <HudCard title="Vertical Tabs" subtitle="Side navigation style tabs">
-                <div className="flex gap-6">
-                    <div className="w-48 shrink-0">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                    <div className="w-full sm:w-48 shrink-0">
                         <div className="space-y-1">
                             {tabs.map((tab, i) => (
                                 <button
@@ -132,7 +132,7 @@ const UiTabsAccordions = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="flex-1 p-4 bg-hud-bg-primary rounded-lg">
+                    <div className="flex-1 min-w-0 p-4 bg-hud-bg-primary rounded-lg">
                         <h4 className="font-semibold text-hud-text-primary mb-2">{tabs[activeVerticalTab]}</h4>
                         <p className="text-hud-text-secondary">
                             This is the content for the {tabs[activeVerticalTab]} tab. Vertical tabs work great for

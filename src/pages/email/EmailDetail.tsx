@@ -62,17 +62,17 @@ const EmailDetail = () => {
     return (
         <div className="animate-fade-in max-w-4xl mx-auto">
             {/* Header */}
-            <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div className="flex items-center gap-4 min-w-0">
                     <Link
                         to="/email/inbox"
                         className="p-2 rounded-lg hover:bg-hud-bg-hover text-hud-text-secondary hover:text-hud-text-primary transition-hud"
                     >
                         <ArrowLeft size={20} />
                     </Link>
-                    <div>
+                    <div className="min-w-0">
                         <h1 className="text-xl font-bold text-hud-text-primary">{emailData.subject}</h1>
-                        <div className="flex items-center gap-3 mt-1">
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1">
                             <div className="flex items-center gap-1.5 text-sm text-hud-text-muted">
                                 <Clock size={14} />
                                 <span>{emailData.date}</span>
@@ -109,13 +109,13 @@ const EmailDetail = () => {
                 {/* Sender Info */}
                 <div className="flex items-start justify-between pb-4 border-b border-hud-border-secondary">
                     <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 rounded-full bg-linear-to-br from-hud-accent-primary to-hud-accent-info flex items-center justify-center text-hud-bg-primary font-semibold">
+                        <div className="w-12 h-12 shrink-0 rounded-full bg-linear-to-br from-hud-accent-primary to-hud-accent-info flex items-center justify-center text-hud-bg-primary font-semibold">
                             {emailData.from.avatar}
                         </div>
-                        <div>
-                            <div className="flex items-center gap-2">
+                        <div className="min-w-0">
+                            <div className="flex flex-wrap items-center gap-x-2">
                                 <span className="font-semibold text-hud-text-primary">{emailData.from.name}</span>
-                                <span className="text-sm text-hud-text-muted">{'<'}{emailData.from.email}{'>'}</span>
+                                <span className="text-sm text-hud-text-muted break-all">{'<'}{emailData.from.email}{'>'}</span>
                             </div>
                             <p className="text-sm text-hud-text-muted mt-0.5">
                                 To: <span className="text-hud-text-secondary">{emailData.to}</span>

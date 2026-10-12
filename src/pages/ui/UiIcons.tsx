@@ -71,7 +71,7 @@ const UiIcons = () => {
                             </span>
 
                             {/* Tooltip */}
-                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-hud-bg-primary border border-hud-border-secondary rounded text-xs text-hud-text-primary opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                            <div className="hidden md:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-hud-bg-primary border border-hud-border-secondary rounded text-xs text-hud-text-primary opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
                                 {iconName} · Click to copy
                             </div>
                         </button>
@@ -105,7 +105,7 @@ const UiIcons = () => {
 
             {/* Icon Sizes */}
             <HudCard title="Icon Sizes" subtitle="Different size variants">
-                <div className="flex items-end gap-6">
+                <div className="flex flex-wrap items-end gap-6">
                     {[16, 20, 24, 32, 40, 48, 64].map((size) => (
                         <div key={size} className="text-center">
                             <Star size={size} className="text-hud-accent-primary mx-auto" />

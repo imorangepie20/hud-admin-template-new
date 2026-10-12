@@ -43,9 +43,9 @@ const Settings = () => {
                 </Button>
             </div>
 
-            <div className="flex gap-6">
+            <div className="flex flex-col lg:flex-row gap-6">
                 {/* Sidebar */}
-                <div className="w-56 shrink-0">
+                <div className="w-full lg:w-56 shrink-0">
                     <HudCard noPadding>
                         <div className="py-2">
                             {settingsSections.map((section) => (
@@ -66,7 +66,7 @@ const Settings = () => {
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 space-y-6">
+                <div className="flex-1 min-w-0 space-y-6">
                     {activeSection === 'profile' && (
                         <HudCard title="Profile Settings" subtitle="Update your personal information">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

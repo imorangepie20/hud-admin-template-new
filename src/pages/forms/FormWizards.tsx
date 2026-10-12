@@ -54,9 +54,9 @@ const FormWizards = () => {
                 {/* Progress Steps */}
                 <div className="flex items-center justify-between mb-8">
                     {steps.map((step, i) => (
-                        <div key={step.id} className="flex items-center">
+                        <div key={step.id} className={`flex items-center ${i < steps.length - 1 ? 'flex-1' : ''}`}>
                             <div
-                                className={`flex items-center justify-center w-12 h-12 rounded-full border-2 transition-hud ${currentStep > step.id
+                                className={`flex items-center justify-center shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border-2 transition-hud ${currentStep > step.id
                                         ? 'bg-hud-accent-success border-hud-accent-success text-white'
                                         : currentStep === step.id
                                             ? 'bg-hud-accent-primary border-hud-accent-primary text-hud-bg-primary'
@@ -65,7 +65,7 @@ const FormWizards = () => {
                             >
                                 {currentStep > step.id ? <Check size={20} /> : step.icon}
                             </div>
-                            <div className="ml-3 hidden md:block">
+                            <div className="ml-3 hidden md:block shrink-0">
                                 <p className={`text-sm font-medium ${currentStep >= step.id ? 'text-hud-text-primary' : 'text-hud-text-muted'
                                     }`}>
                                     Step {step.id}
@@ -76,7 +76,7 @@ const FormWizards = () => {
                                 </p>
                             </div>
                             {i < steps.length - 1 && (
-                                <div className={`w-16 md:w-24 h-0.5 mx-4 ${currentStep > step.id ? 'bg-hud-accent-success' : 'bg-hud-border-secondary'
+                                <div className={`flex-1 h-0.5 mx-2 md:mx-4 ${currentStep > step.id ? 'bg-hud-accent-success' : 'bg-hud-border-secondary'
                                     }`} />
                             )}
                         </div>
