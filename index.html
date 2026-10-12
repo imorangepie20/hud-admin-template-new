@@ -6,6 +6,12 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ALPHA TEAM Template</title>
+  <!-- 첫 페인트 전에 저장된 테마를 적용해 깜빡임 방지 (ThemeContext와 같은 키/기본값 사용) -->
+  <script>
+    try {
+      if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
+    } catch (e) { /* 저장소 접근 불가 시 기본(dark) 유지 */ }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link

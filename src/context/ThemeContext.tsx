@@ -2,22 +2,17 @@ import { useEffect, useState, ReactNode } from 'react';
 import { ThemeContext } from './theme';
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [isDark, setIsDark] = useState(() => {
-    const stored = localStorage.getItem('theme');
-    return stored ? stored === 'dark' : true; // default dark
-  });
+  // index.html의 인라인 스크립트가 첫 페인트 전에 적용한 <html> 클래스를 초기값으로 쓴다
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
 
   useEffect(() => {
-  const className = 'dark';
-  const root = document.documentElement; // apply to <html>
-  if (isDark) {
-    root.classList.add(className);
-  } else {
-    root.classList.remove(className);
-  }
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  console.log('Theme changed:', isDark ? 'dark' : 'light');
-}, [isDark]);
+    document.documentElement.classList.toggle('dark', isDark);
+    try {
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } catch {
+      // 저장소 접근 불가 (사생활 보호 모드 등) 시 저장만 생략
+    }
+  }, [isDark]);
 
   const toggleTheme = () => setIsDark(prev => !prev);
 
