@@ -3,7 +3,6 @@ import {
     ChevronLeft,
     ChevronRight,
     Plus,
-    Calendar as CalendarIcon,
     Clock,
     MapPin,
     Users,
@@ -58,19 +57,6 @@ const upcomingEvents = [
     { date: '20', day: 'Mon', title: 'Quarterly Review', time: '09:00 AM' },
     { date: '22', day: 'Wed', title: 'Training Session', time: '11:00 AM' },
 ]
-
-const getEventColor = (type: string) => {
-    switch (type) {
-        case 'meeting':
-            return 'bg-hud-accent-primary/10 border-hud-accent-primary text-hud-accent-primary'
-        case 'presentation':
-            return 'bg-hud-accent-info/10 border-hud-accent-info text-hud-accent-info'
-        case 'task':
-            return 'bg-hud-accent-warning/10 border-hud-accent-warning text-hud-accent-warning'
-        default:
-            return 'bg-hud-bg-hover border-hud-border-secondary text-hud-text-muted'
-    }
-}
 
 const Calendar = () => {
     const [currentMonth] = useState('January 2026')

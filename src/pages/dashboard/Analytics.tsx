@@ -153,7 +153,7 @@ const Analytics = () => {
                         {/* Donut Chart Placeholder */}
                         <div className="relative w-40 h-40 shrink-0">
                             <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                                {trafficSources.reduce((acc, item, i) => {
+                                {trafficSources.reduce((acc, item) => {
                                     const prevTotal = acc.total
                                     const circumference = 2 * Math.PI * 40
                                     const strokeDasharray = `${(item.percentage / 100) * circumference} ${circumference}`

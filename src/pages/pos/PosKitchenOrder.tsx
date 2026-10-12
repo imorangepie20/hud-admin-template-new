@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Clock, Check, ChefHat, AlertTriangle } from 'lucide-react'
-import HudCard from '../../components/common/HudCard'
 import Button from '../../components/common/Button'
 
 interface Order {

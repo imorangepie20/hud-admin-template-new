@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { Eye, EyeOff, Search, Mail, Lock, User, Calendar, Upload, X } from 'lucide-react'
+import { Eye, EyeOff, Search, Mail, Lock, Calendar, Upload, X } from 'lucide-react'
 import HudCard from '../../components/common/HudCard'
-import Button from '../../components/common/Button'
 
 const FormElements = () => {
     const [showPassword, setShowPassword] = useState(false)

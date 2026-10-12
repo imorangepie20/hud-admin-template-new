@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { X, ZoomIn, Download, Heart, Share2 } from 'lucide-react'
-import HudCard from '../components/common/HudCard'
 
 const galleryItems = [
     { id: 1, title: 'Mountain Landscape', category: 'Nature', color: 'from-blue-500 to-cyan-400' },

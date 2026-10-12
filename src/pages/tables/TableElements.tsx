@@ -1,4 +1,4 @@
-import { ArrowUpDown, ChevronDown, ChevronUp, MoreVertical, Edit, Trash2, Eye } from 'lucide-react'
+import { ArrowUpDown, Edit, Trash2, Eye } from 'lucide-react'
 import HudCard from '../../components/common/HudCard'
 
 const basicTableData = [

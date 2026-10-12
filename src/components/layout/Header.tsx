@@ -12,7 +12,7 @@ import {
     ChevronDown,
   Sun, Moon,
 } from 'lucide-react'
-import { useTheme } from '../../context/ThemeContext'
+import { useTheme } from '../../context/useTheme'
 
 interface HeaderProps {
     onMenuToggle: () => void

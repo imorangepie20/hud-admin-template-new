@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { X, AlertCircle, CheckCircle, Info, AlertTriangle, Bell } from 'lucide-react'
+import { X, AlertCircle, CheckCircle, Info, AlertTriangle } from 'lucide-react'
 import HudCard from '../../components/common/HudCard'
 import Button from '../../components/common/Button'
 

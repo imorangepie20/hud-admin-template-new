@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Sidebar from '../components/layout/Sidebar'
 import Header from '../components/layout/Header'
+import PageLoader from '../components/common/PageLoader'
 
 // lg 브레이크포인트(1024px) 이상이면 고정 사이드바, 미만이면 오버레이 드로어
 const DESKTOP_QUERY = '(min-width: 1024px)'
@@ -23,21 +24,14 @@ const MainLayout = () => {
     const isDesktop = useIsDesktop()
     const location = useLocation()
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
-    const [mobileOpen, setMobileOpen] = useState(false)
-
-    // 모바일에서 페이지 이동 시 드로어 닫기
-    useEffect(() => {
-        setMobileOpen(false)
-    }, [location.pathname])
-
-    // 데스크톱으로 전환되면 드로어 상태 초기화
-    useEffect(() => {
-        if (isDesktop) setMobileOpen(false)
-    }, [isDesktop])
+    // 드로어를 연 시점의 경로. 페이지를 이동하거나 데스크톱으로 바뀌면 자동으로 닫힌다
+    const [drawerPath, setDrawerPath] = useState<string | null>(null)
+    const mobileOpen = !isDesktop && drawerPath === location.pathname
+    const closeDrawer = () => setDrawerPath(null)
 
     const handleMenuToggle = () => {
         if (isDesktop) setSidebarCollapsed(prev => !prev)
-        else setMobileOpen(prev => !prev)
+        else setDrawerPath(mobileOpen ? null : location.pathname)
     }
 
     const collapsed = isDesktop && sidebarCollapsed
@@ -48,7 +42,7 @@ const MainLayout = () => {
             {!isDesktop && mobileOpen && (
                 <div
                     className="fixed inset-0 bg-black/50 z-45"
-                    onClick={() => setMobileOpen(false)}
+                    onClick={closeDrawer}
                 />
             )}
 
@@ -66,7 +60,10 @@ const MainLayout = () => {
 
                 {/* Page Content */}
                 <main className="p-4 sm:p-6">
-                    <Outlet />
+                    {/* 레이아웃은 유지하고 본문만 로더로 대체 */}
+                    <Suspense fallback={<PageLoader />}>
+                        <Outlet />
+                    </Suspense>
                 </main>
             </div>
         </div>

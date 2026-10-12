@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Plus, MoreHorizontal, Calendar, Clock, User, MessageSquare, Paperclip, CheckSquare } from 'lucide-react'
-import HudCard from '../components/common/HudCard'
+import { Plus, MoreHorizontal, Calendar, MessageSquare, Paperclip } from 'lucide-react'
 import Button from '../components/common/Button'
 
 interface Task {
@@ -78,7 +77,7 @@ const getLabelColor = (label: string) => {
 }
 
 const ScrumBoard = () => {
-    const [columns, setColumns] = useState(initialColumns)
+    const [columns] = useState(initialColumns)
 
     return (
         <div className="space-y-6 animate-fade-in">

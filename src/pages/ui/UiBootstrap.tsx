@@ -1,9 +1,4 @@
 import {
-    Code,
-    Layers,
-    Grid3X3,
-    ToggleLeft,
-    CheckSquare,
     AlertCircle,
     Info,
     CheckCircle,
@@ -12,7 +7,6 @@ import {
     ChevronDown,
 } from 'lucide-react'
 import HudCard from '../../components/common/HudCard'
-import Button from '../../components/common/Button'
 
 const UiBootstrap = () => {
     return (

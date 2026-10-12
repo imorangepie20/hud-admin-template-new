@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Calendar, Clock, Users, Plus, Search, Filter } from 'lucide-react'
+import { Calendar, Clock, Users, Plus } from 'lucide-react'
 import HudCard from '../../components/common/HudCard'
 import Button from '../../components/common/Button'
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import {
     LayoutDashboard,
@@ -8,7 +8,6 @@ import {
     User,
     Calendar,
     Settings,
-    HelpCircle,
     Sparkles,
     UtensilsCrossed,
     ChevronDown,
@@ -114,9 +113,25 @@ const menuItems: MenuItem[] = [
     { title: 'Settings', icon: <Settings size={20} />, path: '/settings' },
 ]
 
+const findParentTitle = (pathname: string) =>
+    menuItems.find(item => item.children?.some(child => child.path === pathname))?.title
+
 const Sidebar = ({ collapsed, mobileOpen, onExpand }: SidebarProps) => {
     const location = useLocation()
-    const [expandedMenus, setExpandedMenus] = useState<string[]>([])
+    const [expandedMenus, setExpandedMenus] = useState<string[]>(() => {
+        const parent = findParentTitle(location.pathname)
+        return parent ? [parent] : []
+    })
+
+    // 현재 경로가 속한 상위 메뉴는 자동으로 펼친다 (경로가 바뀔 때 렌더 중에 반영)
+    const [prevPathname, setPrevPathname] = useState(location.pathname)
+    if (prevPathname !== location.pathname) {
+        setPrevPathname(location.pathname)
+        const parent = findParentTitle(location.pathname)
+        if (parent && !expandedMenus.includes(parent)) {
+            setExpandedMenus([...expandedMenus, parent])
+        }
+    }
 
     const toggleMenu = (title: string) => {
         setExpandedMenus(prev =>
@@ -125,16 +140,6 @@ const Sidebar = ({ collapsed, mobileOpen, onExpand }: SidebarProps) => {
                 : [...prev, title]
         )
     }
-
-    // 현재 경로가 속한 상위 메뉴는 자동으로 펼친다
-    useEffect(() => {
-        const parent = menuItems.find(item =>
-            item.children?.some(child => child.path === location.pathname)
-        )
-        if (parent) {
-            setExpandedMenus(prev => (prev.includes(parent.title) ? prev : [...prev, parent.title]))
-        }
-    }, [location.pathname])
 
     // 접힌 상태에서 상위 메뉴를 누르면 사이드바를 펼치고 해당 서브메뉴를 연다
     const handleParentClick = (title: string) => {

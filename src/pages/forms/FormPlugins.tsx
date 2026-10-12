@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { Calendar, Clock, Tag, Hash, AtSign, DollarSign, Star } from 'lucide-react'
+import { Calendar, Clock, AtSign, DollarSign, Star } from 'lucide-react'
 import HudCard from '../../components/common/HudCard'
-import Button from '../../components/common/Button'
 
 const FormPlugins = () => {
     const [selectedDate, setSelectedDate] = useState('2026-01-15')

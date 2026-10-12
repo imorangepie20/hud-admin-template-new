@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Search, Grid, List, Star, ShoppingCart, Heart, Eye, Filter } from 'lucide-react'
-import HudCard from '../components/common/HudCard'
+import { Search, Grid, List, Star, ShoppingCart, Heart, Eye } from 'lucide-react'
 import Button from '../components/common/Button'
 
 const products = [

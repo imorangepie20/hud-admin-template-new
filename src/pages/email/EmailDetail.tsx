@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import {
     ArrowLeft,
     Reply,
@@ -59,8 +59,6 @@ const emailData = {
 }
 
 const EmailDetail = () => {
-    const { id } = useParams()
-
     return (
         <div className="animate-fade-in max-w-4xl mx-auto">
             {/* Header */}
