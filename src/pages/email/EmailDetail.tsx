@@ -166,7 +166,7 @@ const EmailDetail = () => {
                 )}
 
                 {/* Actions */}
-                <div className="flex items-center gap-3 pt-6 mt-4 border-t border-hud-border-secondary">
+                <div className="flex flex-wrap items-center gap-3 pt-6 mt-4 border-t border-hud-border-secondary">
                     <Button variant="outline" leftIcon={<Reply size={16} />}>
                         Reply
                     </Button>

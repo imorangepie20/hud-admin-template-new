@@ -48,12 +48,12 @@ const UiTabsAccordions = () => {
             {/* Basic Tabs */}
             <HudCard title="Basic Tabs" subtitle="Standard tab navigation">
                 <div>
-                    <div className="flex border-b border-hud-border-secondary">
+                    <div className="flex overflow-x-auto border-b border-hud-border-secondary">
                         {tabs.map((tab, i) => (
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(i)}
-                                className={`px-4 py-3 text-sm font-medium transition-hud ${activeTab === i
+                                className={`px-4 py-3 text-sm font-medium whitespace-nowrap transition-hud ${activeTab === i
                                     ? 'text-hud-accent-primary border-b-2 border-hud-accent-primary -mb-px'
                                     : 'text-hud-text-secondary hover:text-hud-text-primary'
                                     }`}
@@ -198,11 +198,11 @@ const UiTabsAccordions = () => {
 
             {/* Cards with Tabs */}
             <HudCard title="Card with Tabs" subtitle="Tabs integrated into card header" noPadding>
-                <div className="flex border-b border-hud-border-secondary">
+                <div className="flex overflow-x-auto border-b border-hud-border-secondary">
                     {['Overview', 'Analytics', 'Reports'].map((tab, i) => (
                         <button
                             key={tab}
-                            className={`px-4 py-3 text-sm font-medium transition-hud ${i === 0
+                            className={`px-4 py-3 text-sm font-medium whitespace-nowrap transition-hud ${i === 0
                                 ? 'text-hud-accent-primary border-b-2 border-hud-accent-primary -mb-px'
                                 : 'text-hud-text-secondary hover:text-hud-text-primary'
                                 }`}

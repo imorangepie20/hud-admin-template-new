@@ -68,28 +68,30 @@ const PosCounterCheckout = () => {
 
                 {/* Order Items */}
                 <HudCard title="Order Items" noPadding>
-                    <table className="w-full">
-                        <thead>
-                            <tr className="border-b border-hud-border-secondary">
-                                <th className="text-left px-5 py-3 text-xs font-medium text-hud-text-muted uppercase">Item</th>
-                                <th className="text-center px-5 py-3 text-xs font-medium text-hud-text-muted uppercase">Qty</th>
-                                <th className="text-right px-5 py-3 text-xs font-medium text-hud-text-muted uppercase">Price</th>
-                                <th className="text-right px-5 py-3 text-xs font-medium text-hud-text-muted uppercase">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {selectedOrder.items.map((item, i) => (
-                                <tr key={i} className="border-b border-hud-border-secondary last:border-0">
-                                    <td className="px-5 py-4 text-sm text-hud-text-primary">{item.name}</td>
-                                    <td className="px-5 py-4 text-sm text-hud-text-secondary text-center">{item.quantity}</td>
-                                    <td className="px-5 py-4 text-sm text-hud-text-secondary text-right font-mono">${item.price.toFixed(2)}</td>
-                                    <td className="px-5 py-4 text-sm text-hud-text-primary text-right font-mono">
-                                        ${(item.price * item.quantity).toFixed(2)}
-                                    </td>
+                    <div className="overflow-x-auto">
+                        <table className="w-full">
+                            <thead>
+                                <tr className="border-b border-hud-border-secondary">
+                                    <th className="text-left px-5 py-3 text-xs font-medium text-hud-text-muted uppercase">Item</th>
+                                    <th className="text-center px-5 py-3 text-xs font-medium text-hud-text-muted uppercase">Qty</th>
+                                    <th className="text-right px-5 py-3 text-xs font-medium text-hud-text-muted uppercase">Price</th>
+                                    <th className="text-right px-5 py-3 text-xs font-medium text-hud-text-muted uppercase">Total</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {selectedOrder.items.map((item, i) => (
+                                    <tr key={i} className="border-b border-hud-border-secondary last:border-0">
+                                        <td className="px-5 py-4 text-sm text-hud-text-primary">{item.name}</td>
+                                        <td className="px-5 py-4 text-sm text-hud-text-secondary text-center">{item.quantity}</td>
+                                        <td className="px-5 py-4 text-sm text-hud-text-secondary text-right font-mono">${item.price.toFixed(2)}</td>
+                                        <td className="px-5 py-4 text-sm text-hud-text-primary text-right font-mono">
+                                            ${(item.price * item.quantity).toFixed(2)}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </HudCard>
 
                 {/* Payment Method */}

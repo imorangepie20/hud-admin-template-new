@@ -104,7 +104,7 @@ const EmailCompose = () => {
                             value={subject}
                             onChange={(e) => setSubject(e.target.value)}
                             placeholder="Email subject"
-                            className="flex-1 px-4 py-2.5 bg-hud-bg-primary border border-hud-border-secondary rounded-lg text-hud-text-primary placeholder-hud-text-muted focus:outline-none focus:border-hud-accent-primary transition-hud"
+                            className="flex-1 min-w-0 px-4 py-2.5 bg-hud-bg-primary border border-hud-border-secondary rounded-lg text-hud-text-primary placeholder-hud-text-muted focus:outline-none focus:border-hud-accent-primary transition-hud"
                         />
                     </div>
                 </div>
