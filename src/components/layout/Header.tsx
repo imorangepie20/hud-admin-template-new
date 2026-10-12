@@ -37,6 +37,7 @@ const Header = ({ onMenuToggle }: HeaderProps) => {
             <div className="flex items-center gap-4">
                 <button
                     onClick={onMenuToggle}
+                    aria-label="Toggle menu"
                     className="p-2 rounded-lg hover:bg-hud-bg-hover transition-hud text-hud-text-secondary hover:text-hud-text-primary"
                 >
                     <Menu size={20} />
